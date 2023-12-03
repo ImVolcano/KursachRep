@@ -1,0 +1,15 @@
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\bin\Debug\net8.0\Kursach.exe
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\bin\Debug\net8.0\Kursach.deps.json
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\bin\Debug\net8.0\Kursach.runtimeconfig.json
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\bin\Debug\net8.0\Kursach.dll
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\bin\Debug\net8.0\Kursach.pdb
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\obj\Debug\net8.0\Kursach.GeneratedMSBuildEditorConfig.editorconfig
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\obj\Debug\net8.0\Kursach.AssemblyInfoInputs.cache
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\obj\Debug\net8.0\Kursach.AssemblyInfo.cs
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\obj\Debug\net8.0\Kursach.csproj.CoreCompileInputs.cache
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\obj\Debug\net8.0\Kursach.sourcelink.json
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\obj\Debug\net8.0\Kursach.dll
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\obj\Debug\net8.0\refint\Kursach.dll
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\obj\Debug\net8.0\Kursach.pdb
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\obj\Debug\net8.0\Kursach.genruntimeconfig.cache
+C:\МосПолитех\ООП\Курсовая\KursachRep\Kursach\Kursach\obj\Debug\net8.0\ref\Kursach.dll
