@@ -1,32 +1,20 @@
 ﻿using Microsoft.Data.SqlClient;
 
-string connectionString = "Server=(localdb)\\mssqllocaldb;Database=bank;Trusted_Connection=True;";
-string sqlExpression = "SELECT * FROM Clients";
+/*string connectionString = "Server=(localdb)\\mssqllocaldb;Database=bank;Trusted_Connection=True;";
+string sqlExpression = "INSERT INTO Clients (Name, Surname, Patronymic, Age, PassportSerial, PassportNumber) VALUES ('Anton', 'Antonov', null, 25, 2222, 123457)";
 
 using(SqlConnection conn = new SqlConnection(connectionString))
 {
     conn.Open();
 
     SqlCommand cmd = new SqlCommand(sqlExpression, conn);
-    SqlDataReader reader = cmd.ExecuteReader();
+    cmd.ExecuteNonQuery();
 
-    if (reader.HasRows)
-    {
-        string column0 = reader.GetName(0);
-        string column1 = reader.GetName(1);
-        string column2 = reader.GetName(2);
-        string column3 = reader.GetName(3);
+    conn.Close();
+}*/
 
-        Console.WriteLine($"{column0}\t{column1}\t{column2}\t{column3}");
+/*BankClient client = new BankClient(-1, "Anton", "Antonovich", null, 25, 2222, 647892);
 
-        while (reader.Read())
-        {
-            object id = reader.GetValue(0);
-            object name = reader.GetValue(1);
-            object surname = reader.GetValue(2);
-            object age = reader.GetValue(3);
+if(ClientProcessor.regClient(client)) Console.WriteLine("+");*/
 
-            Console.WriteLine($"{id}\t{name}\t{surname}\t{age}");
-        }
-    }
-}
+Console.WriteLine(ClientProcessor.findCount());

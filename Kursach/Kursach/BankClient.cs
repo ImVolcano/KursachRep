@@ -1,13 +1,13 @@
 ﻿// Данный класс представляет собой клиента банка
 class BankClient
 {
-    private int ClientID; // Уникальный номер клиента
+    private int ClientID; // Уникальный номер клиента (равен -1, если создан экземпляр класса, записи которого нет в таблице)
     private string Name; // Имя клиента
     private string Surname; // Фамилия клиента
     private string? Patronymic; // Отчество клиента
+    private int Age; // Возраст клиента
     private int PassportSerial; // Серия пасспорта клиента
     private int PassportNumber; // Номер пасспорта клиента
-    private string PhoneNumber; // Номер телефона клиента
 
     // Свойства
     public int clientID
@@ -42,6 +42,12 @@ class BankClient
         set { Patronymic = value; }
     }
 
+    public int age
+    {
+        get { return Age; }
+        set {  Age = value; }
+    }
+
     public int passportSerial
     {
         get { return PassportSerial; }
@@ -54,25 +60,15 @@ class BankClient
         set { PassportNumber = value; }
     }
 
-    public string phoneNumber
-    {
-        get { return PhoneNumber; }
-        set
-        {
-            if (value == null) throw new ArgumentNullException("Неправильный аргумент (BankClient.surname)");
-            else PhoneNumber = value;
-        }
-    }
-
     // Конструктор
-    public BankClient(int clID, string nm, string snm, string patr, int passSer, int passNum, string phNum)
+    public BankClient(int clID, string nm, string snm, string patr, int age, int passSer, int passNum)
     {
         this.clientID = clID;
         this.name = nm;
         this.surname = snm;
+        this.age = age;
         this.patronymic = patr;
         this.passportSerial = passSer;
         this.passportNumber = passNum;
-        this.phoneNumber = phNum;
     }
 }
