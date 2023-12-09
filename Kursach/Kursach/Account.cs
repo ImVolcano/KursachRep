@@ -1,16 +1,23 @@
 ﻿// Данный класс представляет собой счёт клиента
 class Account
 {
-    private int AccountID; // Уникальный номер счёта
+    private int ID; // Уникальный номер счёта
+    private int ClientID; // Уникальный номер клиента
     private string Currency; // Валюта счёта
-    private int Balance; // Баланс счёта
-    private int CardID; // Уникальный номер банковской карты, к которой привязан счёт
+    private int Sum; // Баланс счёта
+    private int? CardID; // Уникальный номер банковской карты, к которой привязан счёт
 
     // Свойства
-    public int accountID
+    public int id
     {
-        get { return AccountID; }
-        set { AccountID = value; }
+        get { return ID; }
+        set { ID = value; }
+    }
+
+    public int clientID
+    {
+        get { return ClientID; }
+        set { ClientID = value; }
     }
 
     public string currency
@@ -19,27 +26,37 @@ class Account
         set
         {
             if(value == null) throw new ArgumentNullException("Неправильный аргумент (Account.currency)");
+            else Currency = value;
         }
     }
 
-    public int balance
+    public int sum
     {
-        get { return Balance; }
-        set { Balance = value; }
+        get { return Sum; }
+        set { Sum = value; }
     }
 
-    public int cardID
+    public int? cardID
     {
         get { return CardID; }
         set { CardID = value; }
     }
 
-    // Конструктор
-    public Account(int accID, string curr, int bal, int cardID)
+    // Конструктор и его перегрузки
+    public Account(int accID, int clID, string curr, int sm)
     {
-        this.accountID = accID;
+        this.id = accID;
+        this.clientID = clID;
         this.currency = curr;
-        this.balance = bal;
+        this.sum = sm;
+    }
+
+    public Account(int accID, int clID, string curr, int sm, int cardID)
+    {
+        this.id = accID;
+        this.clientID = clID;
+        this.currency = curr;
+        this.sum = sm;
         this.cardID = cardID;
     }
 }

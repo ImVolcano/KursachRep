@@ -2,6 +2,7 @@
 class BankCard
 {
     private int CardID; // Уникальный номер карты
+    private int AccountID; // Уникальный номер счёта, к которому привязана карта
     private string CardNumber; // Номер на карте
     private string Name; // Имя на карте
     private string Surname; // Фамилия на карте
@@ -14,6 +15,12 @@ class BankCard
     {
         get { return CardID; }
         set { CardID = value; }
+    }
+
+    public int accountID
+    {
+        get { return AccountID; }
+        set { AccountID = value; }
     }
 
     public string cardNumber
@@ -69,9 +76,10 @@ class BankCard
     }
 
     // Конструктор
-    public BankCard(int cardID, string cardNum, string cardName, string cardSurname, string expDate, int CVV, int PIN)
+    public BankCard(int cardID, int accID, string cardNum, string cardName, string cardSurname, string expDate, int CVV, int PIN)
     {
         this.cardID = cardID;
+        this.accountID = accID;
         this.cardNumber = cardNum;
         this.name = cardName;
         this.surname = cardSurname;
