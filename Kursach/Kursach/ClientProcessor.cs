@@ -12,7 +12,7 @@ class ClientProcessor
         bool result = false;
 
         string values;
-        if (client.patronymic == null) values = $"('{client.name}', '{client.surname}', null, '{client.age}', '{client.passportSerial}', '{client.passportNumber}')";
+        if (client.patronymic == null || client.patronymic == "null") values = $"('{client.name}', '{client.surname}', null, '{client.age}', '{client.passportSerial}', '{client.passportNumber}')";
         else values = $"('{client.name}', '{client.surname}', '{client.patronymic}', '{client.age}', '{client.passportSerial}', '{client.passportNumber}')";
 
         string expression = $"INSERT INTO Clients (Name, Surname, Patronymic, Age, PassportSerial, PassportNumber) VALUES " + values;
@@ -118,6 +118,25 @@ class ClientProcessor
                 result.Add(client);
             }
         }
+
+        return result;
+    }
+
+    // Метод для проверки наличия клиента в таблице по уникальному номеру
+    public static bool check(int id)
+    {
+        bool result = false;
+
+        string expression = "SELECT COUNT (*) FROM Clients WHERE ID=" + id.ToString();
+
+        SqlConnection connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand command = new SqlCommand(expression, connection);
+
+        if ((int)command.ExecuteScalar() > 0) result = true;
+
+        connection.Close();
 
         return result;
     }

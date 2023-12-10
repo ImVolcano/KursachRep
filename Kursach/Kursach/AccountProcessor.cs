@@ -98,4 +98,34 @@ class AccountProcessor
 
         return result;
     }
+
+    // Метод для получения счёта из таблицы по уникальному номеру
+    public static Account getAcc(int id)
+    {
+        Account result = null;
+
+        string expression = "SELECT * FROM Accounts WHERE ID=" + id.ToString();
+
+        SqlConnection connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand command = new SqlCommand(expression, connection);
+
+        SqlDataReader reader = command.ExecuteReader();
+
+        if (reader.HasRows)
+        {
+            while(reader.Read())
+            {
+                object clId = reader.GetValue(1);
+                object curr = reader.GetValue(2);
+                object sum = reader.GetValue(3);
+                object cardId = reader.GetValue(4);
+
+                result = new Account(id, (int)clId, (string)curr, (int)sum, (int)cardId);
+            }
+        }
+
+        return result;
+    }
 }
