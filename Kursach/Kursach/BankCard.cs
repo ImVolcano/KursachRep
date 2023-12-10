@@ -7,8 +7,8 @@ class BankCard
     private string Name; // Имя на карте
     private string Surname; // Фамилия на карте
     private string ExpiryDate; // Дата окончания работы карты
-    private int CodeCVV; // CVV-код карты
-    private int CodePIN; // PIN-код карты
+    private string CodeCVV; // CVV-код карты
+    private string CodePIN; // PIN-код карты
 
     // Свойства
     public int cardID
@@ -63,20 +63,28 @@ class BankCard
         }
     }
 
-    public int codeCVV
+    public string codeCVV
     {
         get { return CodeCVV; }
-        set { CodeCVV = value; }
+        set
+        {
+            if (value == null) throw new ArgumentNullException("Неправильный аргумент");
+            else CodeCVV = value;
+        }
     }
 
-    public int codePIN
+    public string codePIN
     {
         get { return CodePIN; }
-        set { CodePIN = value; }
+        set
+        {
+            if (value == null) throw new ArgumentNullException("Неправильный аргумент");
+            else CodePIN = value;
+        }
     }
 
     // Конструктор
-    public BankCard(int cardID, int accID, string cardNum, string cardName, string cardSurname, string expDate, int CVV, int PIN)
+    public BankCard(int cardID, int accID, string cardNum, string cardName, string cardSurname, string expDate, string CVV, string PIN)
     {
         this.cardID = cardID;
         this.accountID = accID;
