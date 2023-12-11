@@ -99,6 +99,25 @@ class AccountProcessor
         return result;
     }
 
+    // Метод для проверки наличия счёта в таблице по уникальному номеру
+    public static bool check(int id)
+    {
+        bool result = false;
+
+        string expression = "SELECT COUNT (*) FROM Accounts WHERE ID=" + id.ToString();
+
+        SqlConnection connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand command = new SqlCommand(expression, connection);
+
+        if ((int)command.ExecuteScalar() > 0) result = true;
+
+        connection.Close();
+
+        return result;
+    }
+
     // Метод для получения счёта из таблицы по уникальному номеру
     public static Account getAcc(int id)
     {

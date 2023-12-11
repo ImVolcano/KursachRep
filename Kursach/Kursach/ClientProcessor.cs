@@ -36,7 +36,7 @@ class ClientProcessor
 
         string values;
         if (client.patronymic == null) values = $"Name='{client.name}', Surname='{client.surname}', Patronymic=null, Age={client.age}, PassportSerial='{client.passportSerial}', PassportNumber='{client.passportNumber}'";
-        else values = $"Name-'{client.name}', Surname='{client.surname}', Patronymic='{client.patronymic}', Age={client.age}, PassportSerial='{client.passportSerial}', PassportNumber='{client.passportNumber}'";
+        else values = $"Name='{client.name}', Surname='{client.surname}', Patronymic='{client.patronymic}', Age={client.age}, PassportSerial='{client.passportSerial}', PassportNumber='{client.passportNumber}'";
 
         string expression = "UPDATE Clients SET " + values + " WHERE ID=" + id.ToString();
 

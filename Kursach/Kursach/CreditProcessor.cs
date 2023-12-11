@@ -118,4 +118,54 @@ class CreditProcessor
 
         return result;
     }
+
+    // Метод для проверки наличия кредита в таблице по уникальному номеру
+    public static bool check(int id)
+    {
+        bool result = false;
+
+        string expression = "SELECT COUNT (*) FROM Credits WHERE ID=" + id.ToString();
+
+        SqlConnection connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand command = new SqlCommand(expression, connection);
+
+        if ((int)command.ExecuteScalar() > 0) result = true;
+
+        connection.Close();
+
+        return result;
+    }
+
+    // Метод для получения кредита из таблицы по уникальному номеру
+    public static Credit getCred(int id)
+    {
+        Credit result = null;
+
+        string expression = "SELECT * FROM Credits WHERE ID=" + id.ToString();
+
+        SqlConnection connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand command = new SqlCommand(expression, connection);
+
+        SqlDataReader reader = command.ExecuteReader();
+
+        if (reader.HasRows)
+        {
+            while (reader.Read())
+            {
+                object clId = reader.GetValue(1);
+                object sum = reader.GetValue(2);
+                object psum = reader.GetValue(3);
+                object perc = reader.GetValue(4);
+
+                result = new Credit(id, (int)clId, "Ruble", (int)sum, (int)perc);
+                result.payedSum = (int)psum;
+            }
+        }
+
+        return result;
+    }
 }

@@ -19,41 +19,31 @@ class ConsoleProcessor
 
         switch (ans){
             case null:
-                goto case "4";
+                showMainMenu();
+                break;
 
             case "":
-                goto case "4";
+                goto case null;
 
             case "1":
                 ConsoleAddProcessor.showAddMenu();
                 break;
 
             case "2":
-                showEditMenu();
+                ConsoleEditProcessor.showEditMenu();
                 break;
 
             case "3":
-                showDelMenu();
+                ConsoleDelProcessor.showDelMenu();
                 break;
 
             case "4":
                 break;
 
             case "5":
+                Environment.Exit(0);
                 break;
         }
-    }
-
-    // Метод для вызова меню редактирования данных
-    public static void showEditMenu()
-    {
-
-    }
-
-    // Метод для вызова меню удаления данных
-    public static void showDelMenu()
-    {
-
     }
 
     // Метод для вызова меню по его названию (кроме showErrorMenu)
@@ -70,11 +60,11 @@ class ConsoleProcessor
                 break;
 
             case "showEditMenu":
-                showEditMenu();
+                ConsoleEditProcessor.showEditMenu();
                 break;
 
             case "showDelMenu":
-                showDelMenu();
+                ConsoleDelProcessor.showDelMenu();
                 break;
 
             case "addClientMenu":
@@ -83,6 +73,42 @@ class ConsoleProcessor
 
             case "addServiceMenu":
                 ConsoleAddProcessor.addServiceMenu();
+                break;
+
+            case "editClientMenu":
+                ConsoleEditProcessor.editClientMenu();
+                break;
+
+            case "editServiceMenu":
+                ConsoleEditProcessor.editServiceMenu();
+                break;
+
+            case "editAccountMenu":
+                ConsoleEditProcessor.editAccountMenu();
+                break;
+
+            case "editDepositMenu":
+                ConsoleEditProcessor.editDepositMenu();
+                break;
+
+            case "editCreditMenu":
+                ConsoleEditProcessor.editCreditMenu();
+                break;
+
+            case "delClientMenu":
+                ConsoleDelProcessor.delClientMenu();
+                break;
+
+            case "delAccountMenu":
+                ConsoleDelProcessor.delAccountMenu();
+                break;
+
+            case "delDepositMenu":
+                ConsoleDelProcessor.delDepositMenu();
+                break;
+
+            case "delCreditMenu":
+                ConsoleDelProcessor.delCreditMenu();
                 break;
         }
     }
@@ -130,6 +156,8 @@ class ConsoleProcessor
 
             case "Y":
                 if(num == 1) ConsoleAddProcessor.showAddMenu();
+                if(num == 2) ConsoleEditProcessor.showEditMenu();
+                if(num == 3) ConsoleDelProcessor.showDelMenu();
                 break;
 
             case "N":
