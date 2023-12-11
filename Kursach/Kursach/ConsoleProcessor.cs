@@ -38,6 +38,7 @@ class ConsoleProcessor
                 break;
 
             case "4":
+                ConsolePresProcessor.showPresMenu();
                 break;
 
             case "5":
@@ -109,6 +110,10 @@ class ConsoleProcessor
 
             case "delCreditMenu":
                 ConsoleDelProcessor.delCreditMenu();
+                break;
+
+            case "presTotalSumMenu":
+                ConsolePresProcessor.presTotalSumMenu();
                 break;
         }
     }

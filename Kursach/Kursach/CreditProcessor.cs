@@ -168,4 +168,37 @@ class CreditProcessor
 
         return result;
     }
+
+    // Метод для получения списка всех кредитов в таблице
+    public static List<Credit> getAll()
+    {
+        List<Credit> result = new List<Credit>();
+
+        string expression = "SELECT * FROM Credits";
+
+        SqlConnection connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand command = new SqlCommand(expression, connection);
+
+        SqlDataReader reader = command.ExecuteReader();
+
+        if (reader.HasRows)
+        {
+            while (reader.Read())
+            {
+                object id = reader.GetValue(0);
+                object clID = reader.GetValue(1);
+                object sum = reader.GetValue(2);
+                object psum = reader.GetValue(3);
+                object perc = reader.GetValue(4);
+
+                Credit cred = new Credit((int)id, (int)clID, "Ruble", (int)sum, (int)perc);
+                cred.payedSum = (int)psum;
+                result.Add(cred);
+            }
+        }
+
+        return result;
+    }
 }

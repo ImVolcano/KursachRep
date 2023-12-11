@@ -93,7 +93,7 @@ class DepositProcessor
 
         SqlCommand command = new SqlCommand(expression, connection);
 
-        result = (int) command.ExecuteScalar();
+        if(command.ExecuteScalar() != DBNull.Value) result = (int) command.ExecuteScalar();
 
         connection.Close();
 
@@ -143,6 +143,38 @@ class DepositProcessor
                 object perc = reader.GetValue(4);
 
                 result = new Deposit(id, (int)clId, (string)curr, (int)sum, (int)perc);
+            }
+        }
+
+        return result;
+    }
+
+    // Метод для получения списка всех вкладов в таблице
+    public static List<Deposit> getAll()
+    {
+        List<Deposit> result = new List<Deposit>();
+
+        string expression = "SELECT * FROM Deposits";
+
+        SqlConnection connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        SqlCommand command = new SqlCommand(expression, connection);
+
+        SqlDataReader reader = command.ExecuteReader();
+
+        if (reader.HasRows)
+        {
+            while (reader.Read())
+            {
+                object id = reader.GetValue(0);
+                object clID = reader.GetValue(1);
+                object curr = reader.GetValue(2);
+                object sum = reader.GetValue(3);
+                object perc = reader.GetValue(4);
+
+                Deposit dep = new Deposit((int)id, (int)clID, (string)curr, (int)sum, (int)perc);
+                result.Add(dep);
             }
         }
 
