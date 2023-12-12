@@ -58,7 +58,7 @@ class ConsoleEditProcessor
             default:
                 string[] data = ans.Split(" ");
 
-                if (ClientProcessor.check(Convert.ToInt32(data[0])) == false) ConsoleProcessor.showErrorMenu("Пользователя с таким номером не существует", "editClientMenu"); 
+                if (ClientProcessor.check(Convert.ToInt32(data[0]), "client") == false) ConsoleProcessor.showErrorMenu("Пользователя с таким номером не существует", "editClientMenu"); 
 
                 BankClient client = null;
                 try
@@ -119,7 +119,7 @@ class ConsoleEditProcessor
                 break;
 
             case "4":
-                editServiceMenu();
+                showEditMenu();
                 break;
         }
     }
@@ -145,7 +145,7 @@ class ConsoleEditProcessor
             default:
                 string[] data = ans.Split(" ");
 
-                if (AccountProcessor.check(Convert.ToInt32(data[0])) == false) ConsoleProcessor.showErrorMenu("Счёта с таким номером не существует", "editAccountMenu");
+                if (AccountProcessor.check(Convert.ToInt32(data[0]), "account") == false) ConsoleProcessor.showErrorMenu("Счёта с таким номером не существует", "editAccountMenu");
 
                 Account acc = null;
                 try
@@ -195,7 +195,7 @@ class ConsoleEditProcessor
 
                 try
                 {
-                    if (DepositProcessor.check(Convert.ToInt32(data[0])) == false) ConsoleProcessor.showErrorMenu("Вклада с таким номером не существует", "editDepositMenu");
+                    if (DepositProcessor.check(Convert.ToInt32(data[0]), "deposit") == false) ConsoleProcessor.showErrorMenu("Вклада с таким номером не существует", "editDepositMenu");
                 } catch (Exception e)
                 {
                     ConsoleProcessor.showErrorMenu($"Ошибка ввода данных ({e.Message})", "editDepositMenu");
@@ -252,7 +252,7 @@ class ConsoleEditProcessor
 
                 try
                 {
-                    if (CreditProcessor.check(Convert.ToInt32(data[0])) == false) ConsoleProcessor.showErrorMenu("Кредита с таким номером не существует", "editCreditMenu");
+                    if (CreditProcessor.check(Convert.ToInt32(data[0]), "credit") == false) ConsoleProcessor.showErrorMenu("Кредита с таким номером не существует", "editCreditMenu");
                 } catch (Exception e)
                 {
                     ConsoleProcessor.showErrorMenu($"Ошибка ввода данных ({e.Message})", "editCreditMenu");

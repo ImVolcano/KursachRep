@@ -44,13 +44,12 @@ class ConsoleAddProcessor
         Console.Clear();
 
         Console.WriteLine("Введите данные через пробел\r\n(Имя, Фамилия, Отчество(если нет, то указать \"null\"), Возраст, Серию и Номер паспорта)\r\n");
-        Console.WriteLine("-----------------------------------------------------");
 
         string? ans = Console.ReadLine();
         switch (ans)
         {
             case null:
-                ConsoleProcessor.showErrorMenu("Ошибка ввода данных.", "addClientMenu");
+                addClientMenu();
                 break;
 
             case "":
@@ -70,7 +69,7 @@ class ConsoleAddProcessor
 
                 try
                 {
-                    ClientProcessor.regClient(client);
+                    ClientProcessor.reg(client);
                 }
                 catch (Exception ex)
                 {
@@ -102,7 +101,7 @@ class ConsoleAddProcessor
                 goto case null;
 
             default:
-                if (ClientProcessor.check(Convert.ToInt32(ans))) addServiceListMenu(Convert.ToInt32(ans));
+                if (ClientProcessor.check(Convert.ToInt32(ans), "client")) addServiceListMenu(Convert.ToInt32(ans));
                 else ConsoleProcessor.showErrorMenu("Ошибка. Клиента под таким номером не существует.", "addServiceMenu");
                 break;
         }

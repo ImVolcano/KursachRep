@@ -57,7 +57,7 @@
             default:
                 try
                 {
-                    if(ClientProcessor.check(Convert.ToInt32(ans)) == false) ConsoleProcessor.showErrorMenu("Данного пользователя не существует", "delClientMenu");
+                    if(ClientProcessor.check(Convert.ToInt32(ans), "client") == false) ConsoleProcessor.showErrorMenu("Данного пользователя не существует", "delClientMenu");
                 } catch (Exception e)
                 {
                     ConsoleProcessor.showErrorMenu($"Ошибка ввода данных ({e.Message})", "delClientMenu");
@@ -65,7 +65,7 @@
 
                 try
                 {
-                    ClientProcessor.delClient(Convert.ToInt32(ans));
+                    ClientProcessor.del(Convert.ToInt32(ans), "client");
                 } catch (Exception e)
                 {
                     ConsoleProcessor.showErrorMenu($"Ошибка при удалении данных из БД ({e.Message})", "delClientMenu");
@@ -134,7 +134,7 @@
             default:
                 try
                 {
-                    if (AccountProcessor.check(Convert.ToInt32(ans)) == false) ConsoleProcessor.showErrorMenu("Данного счёта не существует", "delAccountMenu");
+                    if (AccountProcessor.check(Convert.ToInt32(ans), "account") == false) ConsoleProcessor.showErrorMenu("Данного счёта не существует", "delAccountMenu");
                 }
                 catch (Exception e)
                 {
@@ -143,7 +143,7 @@
 
                 try
                 {
-                    AccountProcessor.del(Convert.ToInt32(ans));
+                    AccountProcessor.del(Convert.ToInt32(ans), "account");
                 }
                 catch (Exception e)
                 {
@@ -177,7 +177,7 @@
             default:
                 try
                 {
-                    if (DepositProcessor.check(Convert.ToInt32(ans)) == false) ConsoleProcessor.showErrorMenu("Данного вклада не существует", "delDepositMenu");
+                    if (DepositProcessor.check(Convert.ToInt32(ans), "deposit") == false) ConsoleProcessor.showErrorMenu("Данного вклада не существует", "delDepositMenu");
                 }
                 catch (Exception e)
                 {
@@ -186,7 +186,7 @@
 
                 try
                 {
-                    DepositProcessor.del(Convert.ToInt32(ans));
+                    DepositProcessor.del(Convert.ToInt32(ans), "deposit");
                 }
                 catch (Exception e)
                 {
@@ -220,7 +220,7 @@
             default:
                 try
                 {
-                    if (CreditProcessor.check(Convert.ToInt32(ans)) == false) ConsoleProcessor.showErrorMenu("Данного кредита не существует", "delCreditMenu");
+                    if (CreditProcessor.check(Convert.ToInt32(ans), "credit") == false) ConsoleProcessor.showErrorMenu("Данного кредита не существует", "delCreditMenu");
                 }
                 catch (Exception e)
                 {
@@ -229,7 +229,7 @@
 
                 try
                 {
-                    CreditProcessor.del(Convert.ToInt32(ans));
+                    CreditProcessor.del(Convert.ToInt32(ans), "credit");
                 }
                 catch (Exception e)
                 {

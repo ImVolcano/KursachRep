@@ -198,7 +198,7 @@ class ConsolePresProcessor
             default:
                 try
                 {
-                    if (ClientProcessor.check(Convert.ToInt32(ans)) == false) ConsoleProcessor.showErrorMenu("Клиента с таким номером не существует", "presTotalSumMenu");
+                    if (ClientProcessor.check(Convert.ToInt32(ans), "client") == false) ConsoleProcessor.showErrorMenu("Клиента с таким номером не существует", "presTotalSumMenu");
                 } catch (Exception e)
                 {
                     ConsoleProcessor.showErrorMenu($"Ошибка ввода данных({e.Message})", "presTotalSumMenu");
@@ -246,7 +246,7 @@ class ConsolePresProcessor
             default:
                 try
                 {
-                    if (ClientProcessor.check(Convert.ToInt32(ans)) == false) ConsoleProcessor.showErrorMenu("Клиента с таким номером не существует", "presTotalDebtMenu");
+                    if (ClientProcessor.check(Convert.ToInt32(ans), "client") == false) ConsoleProcessor.showErrorMenu("Клиента с таким номером не существует", "presTotalDebtMenu");
                 }
                 catch (Exception e)
                 {
